@@ -13,7 +13,23 @@
 		return ans;
 	}
 
-//Question-2
+//Question - 2
+	public static int removeVal(int nums[], int val) {
+		int i=0, j=0, n=nums.length-1;
+		int k=0;
+		while(j<n && i<n) {
+			if(nums[i]!=val) i++;
+                        else if(nums[i]==val && nums[j]!=val) {
+				int temp=nums[i];
+				nums[i]=nums[j];
+				nums[j]=temp;
+				k++;
+				i++;
+				j++;
+			}else j++;
+		}
+		return k;
+	}
 
 
 
