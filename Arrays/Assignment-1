@@ -13,6 +13,7 @@
 		return ans;
 	}
 
+
 //Question - 2
 	public static int removeVal(int nums[], int val) {
 		int i=0, j=0, n=nums.length-1;
@@ -31,6 +32,96 @@
 		return k;
 	}
 
+
+  //Question - 3
+		public static int findAnElemnt(int nums[], int key) {
+			int start=0, end=nums.length-1;
+			while(start<=end) {
+				int mid=start+(end-start)/2;
+				if(nums[mid]==key) return mid;
+				else if(nums[mid]<key) start=mid+1;
+				else end=mid-1;
+			}
+			return start;
+		}
+		
+		
+//Question - 4
+		public static int[] addOneToArray(int nums[]) {
+			ArrayList<Integer> temp=new ArrayList<>();
+			int carry=0;
+			for(int i=nums.length-1; i>=0; i--) {
+				if(i==nums.length-1) {
+					int num=nums[i]+1;
+					int digit=num%10;
+					carry=num/10;
+					temp.add(digit);
+				}else {
+					int num=nums[i]+carry;
+					int digit=num%10;
+					carry=num/10;
+					temp.add(digit);
+				}
+			}
+			if(carry!=0) temp.add(1);
+			int ans[]=new int [temp.size()], m=0;
+			for(int i=temp.size()-1; i>=0;i--) ans[m++]=temp.get(i);
+			return ans;
+		}
+		
+		
+//Question - 5
+		public static void mergeSortedArray(int nums1[], int nums2[], int n, int m) {
+			int i=0, j=0;
+			while(i<n || j<m) {
+				if(i<n && nums1[i]<=nums2[j]) i++;
+				else if(j<m && nums1[i]>nums2[j]) {
+					for(int p=nums1.length-1; p>=i; p--) nums1[p]=nums1[p-1];
+					nums1[i++]=nums2[j++];
+					i++;
+				}else while(j<m) nums1[i++]=nums2[j++];
+			}
+		}
+
+
+//Question 6
+		public static boolean apperienceOfElement(int nums[], int key) {
+			Set<Integer> st=new HashSet<>();
+			for(int i=0; i<nums.length; i++) {
+				if(st.contains(nums[i])) return true;
+				st.add(nums[i]);
+			}
+			return false;
+		}
+		
+		
+//Question 7
+		public static void moveAllZeros(int nums[]) {
+			int i=0, j=0;
+			while(j<nums.length && i<nums.length) {
+				if(nums[i]==0 && nums[j]!=0) {
+					int temp=nums[i];
+					nums[i]=nums[j];
+					nums[j]=temp;
+					i++;
+				}else if(nums[j]==0) j++;
+			}
+		}
+
+		
+//Question 8
+		public static int[] duplicateNumber(int nums[]) {
+			int ans[]=new int[2];
+			for(int i=0; i<nums.length-1; i++) {
+				if(nums[i]+1!=nums[i+1]) {
+					ans[0]=nums[i+1];
+					ans[1]=nums[i+1]+1;
+					return ans;
+				}
+			}
+			return ans;
+		}
+		
 
 
 
