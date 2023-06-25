@@ -1,4 +1,4 @@
-//Question 1
+                //Question 1
 		public static int maxPossibleSum(int arr[]) {
 			int i=0, n=arr.length, ans=0;
 			while(i<n) {
@@ -13,7 +13,7 @@
 		}
 	
 	
-	//Question 2
+	        //Question 2
 		public static int maxCandy(int arr[]) {
 			int ans=0, n=arr.length;
 			HashMap<Integer, Integer> tm=new HashMap<>();
