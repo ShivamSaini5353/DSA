@@ -1,1 +1,130 @@
+//Question 1
+	public static int targetSum(int arr[], int target) {
+		int ans=-1, min=Integer.MAX_VALUE;
+		for(int i=0; i<arr.length; i++) {
+			for(int j=i+1; j<arr.length; j++) {
+				for(int k=j+1; k<arr.length; k++) {
+					int temp=arr[i]+arr[j]+arr[k];
+					int secondMin=Math.abs(temp-target);
+					if(min>secondMin) {
+						ans=temp;
+						min=secondMin;
+					}
+				}
+			}
+		}
+		return ans;
+	}
+	
+	//Question 2
+	public static ArrayList<ArrayList<Integer>> targetSumSequence(int arr[], int target){
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+		for(int i=0; i<arr.length; i++) {
+			for(int j=i+1; j<arr.length; j++) {
+				for(int k=j+1; k<arr.length; k++) {
+					for(int m=k+1; m<arr.length; m++) {
+						if(arr[i]+arr[j]+arr[k]+arr[m]==target) {
+							ans.add(new ArrayList<>(Arrays.asList(arr[i],arr[j],arr[k],arr[m])));
+						}
+					}
+				}
+			}
+		}
+		return ans;
+	}
+	
+	
+	//Question 3
+	public static void permutation(ArrayList<Integer> arr) {
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+		ArrayList<Integer> temp=new ArrayList<>();
+		allPermutation(arr, ans, temp);
+		for(int i=0; i<ans.size(); i++) System.out.println(ans.get(i));
+	}
+	
+    public static void allPermutation(ArrayList<Integer> arr, ArrayList<ArrayList<Integer>> ans, ArrayList<Integer> temp) {
+    	if(arr.size()==0) {
+			ans.add(new ArrayList<>(temp));
+			return;
+		}
+		for(int i=0; i<arr.size(); i++) {
+			temp.add(arr.get(i));
+			ArrayList<Integer> t=new ArrayList<>(arr);
+			t.remove(i);
+			allPermutation(t, ans, temp);	
+			temp.remove(temp.size()-1);
+		}
+	}
+		
+	
+    //Question 4
+	public static int findAnElemnt(int nums[], int key) {
+		int start=0, end=nums.length-1;
+		while(start<=end) {
+			int mid=start+(end-start)/2;
+			if(nums[mid]==key) return mid;
+			else if(nums[mid]<key) start=mid+1;
+			else end=mid-1;
+		}
+		return start;
+	}
+	
+	
+	//Question 5
+	
+	public static int[] addOneToArray(int nums[]) {
+		ArrayList<Integer> temp=new ArrayList<>();
+		int carry=0;
+		for(int i=nums.length-1; i>=0; i--) {
+			if(i==nums.length-1) {
+				int num=nums[i]+1;
+				int digit=num%10;
+				carry=num/10;
+				temp.add(digit);
+			}else {
+				int num=nums[i]+carry;
+				int digit=num%10;
+				carry=num/10;
+				temp.add(digit);
+			}
+		}
+		if(carry!=0) temp.add(1);
+		int ans[]=new int [temp.size()], m=0;
+		for(int i=temp.size()-1; i>=0;i--) ans[m++]=temp.get(i);
+		return ans;
+	}
+	
+	
+	//Question 6
+    public static int noDublicateElement(int arr[]) {
+    	int ans=0;
+    	for(int i=0; i<arr.length; i++) ans^=arr[i];
+    	return ans;
+    }
+	
+	
+	//Question 7
+	public static ArrayList<ArrayList<Integer>> findMissingRange(int arr[], int lower, int upper){
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+		int n=arr.length;
+		if(arr[0]!=lower) ans.add(new ArrayList<>(Arrays.asList(lower, arr[0]-1)));
+		for(int i=0; i<n-1; i++) {
+			if(arr[i]+1==arr[i+1]) continue;
+			else {
+				ans.add(new ArrayList<>(Arrays.asList(arr[i]+1, arr[i+1]-1)));
+			}
+		}
+		if(arr[n-1]!=upper) ans.add(new ArrayList<>(Arrays.asList(arr[n-1]+1, upper)));
+		return ans;
+	}
 
+	
+	//Question 8
+	public static boolean checkMeeting(int arr[][]) {
+		int last=arr[0][1];
+		for(int i=1; i<arr.length; i++) {
+			if(arr[i][0]<last) return false;
+			else last=arr[i][1];
+		}
+		return true;
+	}
