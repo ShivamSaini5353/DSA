@@ -1,1 +1,109 @@
+//Question 1
+		public static int[][] make2DMatrix(int arr[], int m, int n){
+			int ans[][]=new int[n][m], k=0;
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<m; j++) {
+					ans[i][j]=arr[k++];
+				}
+			}
+			return ans;
+		}
 
+	
+	 //Question-2
+	 public static int countStairs(int n) {
+	 	int ans=0, count=1;
+	 	while(n>=count) {
+	 		if(count<=n) {
+	 			ans++;
+	 			n-=count;
+	 			count++;
+	 		}
+	 	}
+	 	return ans;
+	 }
+			
+	//Question 3
+	public static int[] getSquare(int arr[]) {
+		int n=arr.length;
+		int ans[]=new int[n];
+		for(int i=0; i<n; i++) ans[i]=(int)Math.pow(Math.abs(arr[i]-0), 2);
+		Arrays.sort(ans);
+		return ans;
+	}
+	
+	//Question 4
+	public static ArrayList<ArrayList<Integer>> commonElement(int a[], int b[]){
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+		HashSet<Integer> one=new HashSet<>();
+		HashSet<Integer> two=new HashSet<>();
+		int i=0, j=0, n=a.length, m=b.length;
+		while(i<n || j<m) {
+			if(i<n) one.add(a[i++]);
+			if(j<m) two.add(b[j++]);
+		}
+		ArrayList<Integer> temp=new ArrayList<>();
+		for(int k=0; k<n; k++) if(!two.contains(a[k])) temp.add(a[k]);
+		ans.add(new ArrayList<>(temp));
+		temp.clear();
+		for(int k=0; k<n; k++) if(!one.contains(b[k])) temp.add(b[k]);
+		ans.add(new ArrayList<>(temp));
+		return ans;
+	}
+   
+	//Question 5
+	public static int distance(int arr1[], int arr2[], int d) {
+		int ans=0;
+		for(int i=0; i<arr1.length; i++) {
+			for(int j=0; j<arr2.length; j++) {
+				if(Math.abs(arr1[i]-arr2[j])<=d) ans++;
+			}
+		}
+		return ans;
+	}
+	
+	//Question 6
+	public static int[] dubliacte(int arr[]) {
+		ArrayList<Integer> temp=new ArrayList<>();
+		for(int i=0; i<arr.length; i++) {
+			int p=Math.abs(arr[i])-1;
+			if(arr[p]<0) temp.add(p+1);
+			 arr[p]*=-1;
+		}
+		int ans[]=new int[temp.size()];
+		for(int r=0; r<temp.size(); r++) ans[r]=temp.get(r);
+		return ans;
+	}
+		
+	//Question 7
+	
+	public static int uniqueElement(int[] arr) {
+	     int i=0, j=arr.length-1;
+	      if(arr.length==1) return arr[0];
+	      while(i<=j) {
+	    	  int mid=i+(j-i)/2;
+	    	  if(mid > 0 && arr[mid] < arr[mid - 1]) return arr[mid];
+	    	  else if(arr[mid]>=arr[i] && arr[mid]>arr[j]) i=mid+1;
+	    	  else j=mid-1;
+	      }
+	      return arr[i];
+	}
+	
+	//Question 8
+	
+	public static int[] doubleArray(int arr[]) {
+		HashSet<Integer> st=new HashSet<>();
+		for(int i=0; i<arr.length; i++) st.add(arr[i]);
+		ArrayList<Integer> temp=new ArrayList<>();
+		for(int i=0; i<arr.length; i++) {
+			if(st.contains(arr[i]*2)) {
+				temp.add(arr[i]);
+				st.remove(arr[i]);
+			}
+		}
+		int ans[]=new int[temp.size()];
+		for(int i=0; i<temp.size(); i++) ans[i]=temp.get(i);
+		System.out.println(temp);
+		return ans;
+	}
+	
