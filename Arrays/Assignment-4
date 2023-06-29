@@ -1,1 +1,117 @@
-
+//Question 1
+	public static int[] intersectionElement(int arr1[], int arr2[], int arr3[]) {
+		ArrayList<Integer> temp=new ArrayList<>();
+		int i=0, j=0, k=0, n1=arr1.length, n2=arr2.length, n3=arr3.length;
+		while(i<n1 && j<n2 && k<n3) {
+			if(arr1[i]==arr2[j] && arr1[i]==arr3[k]) {
+				temp.add(arr1[i]);
+				i++; j++; k++;
+			}
+			else if(arr1[i]==arr2[j] && arr1[i]<arr3[k]) {
+				j++; i++;
+			}
+			else if(arr1[1]==arr3[k] && arr2[j]<arr1[i]) {
+				i++; i++;
+			}
+			else if(arr2[j]==arr3[k] && arr1[i]>arr3[k]) {
+				j++; k++;
+			}
+			else if(arr1[i]<arr2[j] && arr1[i]<arr3[k]) i++;
+			else if(arr2[i]<arr1[j] && arr2[i]<arr3[k]) j++;
+			else k++;
+			
+		}
+		int ans[]=new int[temp.size()];
+		for(int p=0; p<temp.size(); p++) ans[p]=temp.get(p);
+		return ans;
+	}
+	
+	//Question 2
+	public static ArrayList<ArrayList<Integer>> commonElement(int a[], int b[]){
+		ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+		HashSet<Integer> one=new HashSet<>();
+		HashSet<Integer> two=new HashSet<>();
+		int i=0, j=0, n=a.length, m=b.length;
+		while(i<n || j<m) {
+			if(i<n) one.add(a[i++]);
+			if(j<m) two.add(b[j++]);
+		}
+		ArrayList<Integer> temp=new ArrayList<>();
+		for(int k=0; k<n; k++) if(!two.contains(a[k])) temp.add(a[k]);
+		ans.add(new ArrayList<>(temp));
+		temp.clear();
+		for(int k=0; k<n; k++) if(!one.contains(b[k])) temp.add(b[k]);
+		ans.add(new ArrayList<>(temp));
+		return ans;
+	}
+	
+	//Question 3
+		public static void transpose(int arr[][]) {
+			int n=arr.length;
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<i; j++) {
+					int temp=arr[i][j];
+					arr[i][j]=arr[j][i];
+					arr[j][i]=temp;
+				}
+			}
+		}
+		
+		 //Question 4
+		public static int maxPossibleSum(int arr[]) {
+			int i=0, n=arr.length, ans=0;
+			while(i<n) {
+				int one=Math.min(arr[i], arr[i+1]) + Math.min(arr[i+1], arr[i+2]);
+				int two=Math.min(arr[i], arr[i+2])+ Math.min(arr[i+1], arr[i+3]);
+				int three=Math.min(arr[i], arr[i+3])+ Math.min(arr[i+2], arr[i+3]);
+				ans=Math.max(one, Math.max(two, three));
+				i=i+4;
+				if(i+4>=n)break;
+			}
+			return ans;
+		}
+		
+		//Question 5
+		public static int countStairs(int n) {
+			int ans=0, count=1;
+			while(n>=count) {
+				if(count<=n) {
+					ans++;
+					n-=count;
+					count++;
+				}
+			}
+			return ans;
+		}
+		
+		//Question 6
+		public static int[] getSquare(int arr[]) {
+			int n=arr.length;
+			int ans[]=new int[n];
+			for(int i=0; i<n; i++) ans[i]=(int)Math.pow(Math.abs(arr[i]-0), 2);
+			Arrays.sort(ans);
+			return ans;
+		}
+		
+		//Question 7
+		public static int getMax(int arr[][]) {
+			int ans=0, n=arr.length;
+			for(int i=0; i<n-1; i++) {
+				for(int j=0; j<=i+1; j++) {
+					arr[i][j]+=1;
+				}
+				ans++;
+			}
+			return ans*2;
+		}
+		
+		//Question 8
+		public static int[] arrangeElement(int arr[], int n) {
+			int len=arr.length, k=0;
+			int ans[]=new int[len];
+			for(int i=0; i<n; i++) {
+				ans[k++]=arr[i];
+				ans[k++]=arr[len-n+i];
+			}
+			return ans;
+		}
