@@ -1,1 +1,109 @@
-
+//Question 1
+	public static int[] d_i_String(String s) {
+        int n=s.length();
+        int ans[]=new int[n+1];
+        ArrayList<Integer> temp=new ArrayList<>();
+        for(int i=0; i<=n; i++) temp.add(i);
+        int p=0,  q=n;
+        for(int i=0; i<n; i++){
+            if(s.charAt(i)=='I') ans[i]=temp.get(p++);
+            else ans[i]=temp.get(q--);
+        }
+        ans[n]=temp.get(p);
+        return ans;
+    }
+	
+	//Question 2
+	public static boolean isPresent(int arr[][], int target) {
+		int i=0, j=arr.length-1, n=arr.length;
+		while(i<n && j<n) {
+			if(arr[i][j]==target) return true;
+			else if(arr[i][j]<target) i++;
+			else j--;
+		}
+		return false;
+	}
+	
+	//Question 3
+	public static boolean strictly_inc_dec(int arr[]) {
+		boolean inc=false, dec=false;
+		for(int i=0; i<arr.length-1; i++) {
+			if(arr[i]<arr[i+1]) {
+				inc=true;
+				if(dec) return false;
+			}else {
+				if(!inc) return false;
+				dec=true;
+			}
+		}
+		return true;
+	}
+	
+	//Question 4
+	public static int longLength(int arr[]) {
+		int ans=0, max=0;
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]==0 || arr[i]==1) max++;
+			else {
+				ans=Math.max(max, ans);
+				max=0;
+			}
+		}
+		ans=Math.max(ans, max);
+		return ans;
+	}
+	
+	//Question 5
+	public static int product_Array(int num1[], int num2[]) {
+		int ans=0;
+		for(int i=0; i<num1.length; i++) ans+=num1[i]*num2[i];
+		return ans;
+	}
+	
+	//Question 6
+	public static int[] doubleArray(int arr[]) {
+		HashSet<Integer> st=new HashSet<>();
+		for(int i=0; i<arr.length; i++) st.add(arr[i]);
+		ArrayList<Integer> temp=new ArrayList<>();
+		for(int i=0; i<arr.length; i++) {
+			if(st.contains(arr[i]*2)) {
+				temp.add(arr[i]);
+				st.remove(arr[i]);
+			}
+		}
+		int ans[]=new int[temp.size()];
+		for(int i=0; i<temp.size(); i++) ans[i]=temp.get(i);
+		System.out.println(temp);
+		return ans;
+	}
+	
+	//Question 7
+		public static void print_Sprial_Order(int n) {
+			int arr[][]=new int[n][n];
+			int k=1, sr=0, sc=0, er=n-1,ec=n-1;
+			while(k<=n*n) {
+				for(int i=sc; k<=n*n && i<=ec; i++) arr[sr][i]=k++;
+				sr++;
+				for(int j=sr; k<=n*n && j<=er; j++) arr[j][ec]=k++;
+				ec--;
+				for(int i=ec; k<=n*n && i>=sc; i--) arr[er][i]=k++;
+				er--;
+				for(int j=er; k<=n*n && j>=sr; j--) arr[j][sc]=k++;
+				sc++;
+			}
+		}
+		
+	//Question 8
+		public static void main(String[] args) {
+		    int mat1[][] = {{1,0,0},{-1,0,3}}, mat2[][] = {{7,0,0},{0,0,0},{0,0,1}};
+			int ans[][]=new int[mat1.length][mat1[0].length];
+			for(int i=0; i<mat1.length; i++) {
+				for(int i1=0; i1<mat1[0].length; i1++) {
+					int temp=0;
+					for(int j=0; j<mat2[0].length; j++) {
+						temp+=mat1[i][i1]*mat2[i1][j];
+					}
+					ans[i][i1]=temp;
+				}
+			}
+		}
