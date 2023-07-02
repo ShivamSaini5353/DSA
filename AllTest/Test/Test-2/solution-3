@@ -1,1 +1,12 @@
-
+public static void main(String[] args) {
+       ArrayList<Integer> a=new ArrayList<>(Arrays.asList(12,24,12,24,60,48));
+       int ans=0, sum=0;
+       int i=0;
+       do {
+		if(a.size()==0)break;
+		else sum+=a.get(i);
+		i++;
+	      } while (i<a.size());
+       System.out.println(sum);
+       System.out.println("Ans is "+sum/a.size());
+	}
