@@ -1,1 +1,121 @@
 
+		
+		//Question - 1
+	       public static int makeEqual(String s1, String s2) {
+	    	   int ans=0;
+	    	   HashMap<Character, Integer> hm=new HashMap<>();
+				for(int i=0; i<s1.length(); i++) hm.put(s1.charAt(i), hm.getOrDefault(s1.charAt(i), 0)+1);
+				for(int i=0; i<s2.length(); i++) {
+					if(hm.containsKey(s2.charAt(i))) {
+						if(hm.get(s2.charAt(i))==1) hm.remove(s2.charAt(i));
+						else hm.put(s2.charAt(i), hm.get(s2.charAt(i))-1);
+					}else {
+						hm.put(s2.charAt(i), hm.getOrDefault(s2.charAt(i), 0)+1);
+					}
+				}
+				for(Character ch:hm.keySet()) ans+=ch;
+	    	   return ans;
+	       }
+	       
+	       //Question 2
+	    	    public boolean checkValidString(String s) {
+	    	        Stack<Integer> brackets, stars;
+	    	        brackets = new Stack<>();
+	    	        stars = new Stack<>();
+	    	        for(int i=0; i<s.length(); i++){
+	    	            char bracket = s.charAt(i);
+	    	            if(bracket == '(') brackets.push(i);
+	    	            else if(bracket == '*')stars.push(i);
+	    	            else if(!brackets.isEmpty()) brackets.pop();
+	    	            else if(!stars.isEmpty())stars.pop();
+	    	            else return false;
+	    	        }
+	    	        while(!brackets.isEmpty() && !stars.isEmpty() && brackets.peek() < stars.peek()){
+	    	            brackets.pop();
+	    	            stars.pop();
+	    	        }
+	    	        return brackets.isEmpty();
+	    	    }
+	       
+	     //Question - 3
+	       public static int notEqualChar(String s1, String s2) {
+	    	   HashMap<Character, Integer> hm=new HashMap<>();
+				for(int i=0; i<s1.length(); i++) hm.put(s1.charAt(i), hm.getOrDefault(s1.charAt(i), 0)+1);
+				for(int i=0; i<s2.length(); i++) {
+					if(hm.containsKey(s2.charAt(i))) {
+						if(hm.get(s2.charAt(i))==1) hm.remove(s2.charAt(i));
+						else hm.put(s2.charAt(i), hm.get(s2.charAt(i))-1);
+					}else {
+						hm.put(s2.charAt(i), hm.getOrDefault(s2.charAt(i), 0)+1);
+					}
+				}
+	    	   return hm.size();
+	       }
+	       
+	       //Question 5
+	       public static ArrayList<String> countCounChar(String s[]){
+	   		ArrayList<String> ans=new ArrayList<>();
+	   		int temp=1; String ch=s[0];
+	   		ans.add(ch);
+	   		for(int i=1; i<s.length; i++) {
+	   			if(ch.equals(s[i])) temp++;
+	   			else {
+	   				ans.add(temp+"");
+	   				temp=1;
+	   				ch=s[i];
+	   				ans.add(ch);
+	   			}
+	   		}
+	   		if(temp!=0)ans.add(temp+"");
+	   		return ans;
+	   	}
+	       
+	       //Question 6
+	       public static ArrayList<Integer> findString(String s, String key){
+	   		ArrayList<Integer> ans=new ArrayList<>();
+	   		for(int i=0; i<s.length()-2; i++) {
+	   			char ch=s.charAt(i);
+	   			if((ch=='a') && ((s.charAt(i+1)=='b' && s.charAt(i+2)=='c') || (s.charAt(i+1)=='c' && s.charAt(i+2)=='b'))) ans.add(i);
+	   			else if((ch=='b') && ((s.charAt(i+1)=='a' && s.charAt(i+2)=='c') || (s.charAt(i+1)=='c' && s.charAt(i+2)=='a'))) ans.add(i);
+	   			else if((ch=='c') && ((s.charAt(i+1)=='a' && s.charAt(i+2)=='b') || (s.charAt(i+1)=='b' && s.charAt(i+2)=='a'))) ans.add(i);
+	   		}
+	   		return ans;
+	   	}
+	       
+	       //Question 7
+	       public static String makeString(String s) {
+	   		String ans="";
+	   		for(int i=0; i<s.length(); i++) {
+	   			int temp=0; String ti="";
+	   			for(int j=i; j<s.length(); j++) {
+	   				if(s.charAt(j)=='[') break;
+	   				else ti+=s.charAt(j);
+	   				temp++;
+	   			}
+	   			int len=Integer.parseInt(ti);
+	   			ti="";
+	   			for(int j=temp+i+1; j<s.length(); j++) {
+	   				if(s.charAt(j)==']') break;
+	   				else ti+=s.charAt(j);
+	   				temp++;
+	   			}
+	   			for(int k=0; k<len; k++) ans+=ti;
+	   			i=temp+i+1;
+	   		}
+	   		return ans;
+	   	}
+	       
+	       //Question 8
+			public static boolean shift(String s, String goal) {
+				HashMap<Character, Integer> hm=new HashMap<>();
+				for(int i=0; i<s.length(); i++) hm.put(s.charAt(i), hm.getOrDefault(s.charAt(i), 0)+1);
+				for(int i=0; i<goal.length(); i++) {
+					if(hm.containsKey(goal.charAt(i))) {
+						if(hm.get(goal.charAt(i))==1) hm.remove(goal.charAt(i));
+						else hm.put(goal.charAt(i), hm.get(goal.charAt(i)-1));
+					}
+				}
+				if(hm.size()==0) return true;
+				return false;
+			}
+	
