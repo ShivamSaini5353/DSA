@@ -1,1 +1,138 @@
+Question-1
+Conditional operators in Java are used to make decisions and perform different actions based on conditions. They allow you to write concise and efficient code for conditional statements.
+
+The main conditional operators in Java are:
+Conditional (Ternary) Operator: It is the only ternary operator in Java and has the syntax (condition) ? expression1 : expression2. The condition is evaluated first, and if it is true, expression1 is executed; otherwise, expression2 is executed. The result of the operator is the value of the executed expression.
+Logical AND Operator (&&): It returns true if both of its operands are true. The syntax is result = (condition1 && condition2). Both condition1 and condition2 are evaluated, and the result is true only if both conditions are true.
+Logical OR Operator (||): It returns true if at least one of its operands is true. The syntax is result = (condition1 || condition2). Both condition1 and condition2 are evaluated, and the result is true if either of the conditions is true.
+Logical NOT Operator (!): It negates the boolean value of an expression. The syntax is result = !condition. The expression condition is evaluated, and the result is the opposite of its boolean value.
+
+Question-2
+Unary Operators: Unary operators work on a single operand. They perform operations on a single value or variable. Examples of unary operators include the negation operator (-), increment operator (++), decrement operator (--), and logical NOT operator (!).
+Binary Operators: Binary operators operate on two operands. They perform operations between two values or variables. Binary operators are the most common type of operators in programming. Examples of binary operators include arithmetic operators (+, -, *, /), relational operators (>, <, >=, <=), assignment operator (=), equality operator (==), logical AND operator (&&), logical OR operator (||), and many others.
+Ternary Operator: The ternary operator is a unique operator in Java. It operates on three operands. It is also known as the conditional operator. The ternary operator evaluates a condition and chooses one of two expressions based on the result of the condition. The syntax of the ternary operator is (condition) ? expression1 : expression2.
+
+Question-3
+The switch case statement consists of a selector expression and a set of case labels. The selector expression is evaluated, and its value is compared with the values specified in the case labels. If a match is found, the corresponding block of code associated with that case label is executed. If no match is found, an optional default case can be used to specify a block of code to execute when none of the case labels match.
+
+Question-4
+if Statement: The if statement is the simplest form of a conditional statement. It executes a block of code if a given condition is true. It has the following syntax:
+
+java
+Copy code
+if (condition) {
+    // Code to be executed if the condition is true
+}
+if-else Statement: The if-else statement provides an alternative execution path. It executes one block of code if a condition is true and another block of code if the condition is false. It has the following syntax:
+
+java
+Copy code
+if (condition) {
+    // Code to be executed if the condition is true
+} else {
+    // Code to be executed if the condition is false
+}
+if-else if-else Statement: The if-else if-else statement allows for multiple conditions to be checked in sequence. It executes different blocks of code based on the result of different conditions. It has the following syntax:
+
+java
+Copy code
+if (condition1) {
+    // Code to be executed if condition1 is true
+} else if (condition2) {
+    // Code to be executed if condition2 is true
+} else {
+    // Code to be executed if all conditions are false
+}
+switch Statement: The switch statement provides a way to select one of many code blocks to be executed based on the value of a variable or an expression. It has the following syntax:
+
+java
+Copy code
+switch (expression) {
+    case value1:
+        // Code to be executed if expression matches value1
+        break;
+    case value2:
+        // Code to be executed if expression matches value2
+        break;
+    // more cases...
+    default:
+        // Code to be executed if expression does not match any case
+}
+Conditional statements are essential for making decisions and controlling program flow. They are used in a wide range of scenarios, such as validating user input, handling different options in menus, implementing algorithms with branching logic, and more. Conditional statements allow you to write code that adapts to different conditions and performs the appropriate actions accordingly.
+
+Question 5
+if (condition) {
+    // Code to be executed if the condition is true
+} else {
+    // Code to be executed if the condition is false
+}
+
+Question 6
+ you can compare two strings using the equals() method or the compareTo() method.
+
+Question 7
+
+In Java, strings are immutable, which means their values cannot be changed once they are created. However, the StringBuilder and StringBuffer classes provide mutable string-like objects that can be modified.
+Here's an example demonstrating the use of StringBuilder, a mutable string class:
+StringBuilder stringBuilder = new StringBuilder("Hello");
+System.out.println("Original StringBuilder: " + stringBuilder);
+// Appending a string
+stringBuilder.append(" World");
+System.out.println("StringBuilder after appending: " + stringBuilder);
+
+Question-8
+
+import java.util.Arrays;
+public class StringSorter {
+    public static void main(String[] args) {
+        String inputString = "programming";
+        char[] charArray = inputString.toCharArray();
+        Arrays.sort(charArray);
+        String sortedString = new String(charArray);
+        System.out.println("Sorted string: " + sortedString);
+    }
+}
+
+Question 9
+
+public class LetterCheck {
+    public static void main(String[] args) {
+        String word = "Umbrella";
+        char letterToCheck = 'e';
+        boolean isPresent = false;
+        word = word.toLowerCase();
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == letterToCheck) {
+                isPresent = true;
+                break;
+            }
+        }
+        if (isPresent) {
+            System.out.println("The letter '" + letterToCheck + "' is present in the word.");
+        } else {
+            System.out.println("The letter '" + letterToCheck + "' is not present in the word.");
+        }
+    }
+}
+
+Question 10
+The string constant pool in Java is a special area in the Java Virtual Machine (JVM) memory where string literals are stored. It is part of the runtime constant pool, which is a runtime representation of constant values used in a Java program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
