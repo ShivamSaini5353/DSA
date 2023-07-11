@@ -1,1 +1,41 @@
+class Person{
+	private String name;
+	private int age;
+	private String Address;
+	
+	public void setName(String name) {
+		this.name=name;
+	}
+	public void setAge(int age) {
+		this.age=age;
+	}
+	public void setAddress(String add) {
+		this.Address=add;
+	}
+	
+	public String getName(Person p) {
+		return p.name;
+	}
+	public int getAge(Person p) {
+		return p.age;
+	}
+	public String getAdd(Person p) {
+		return p.Address;
+	}
+}
 
+
+public class AssignmentQues {
+		
+	public static void main(String[] args) {
+		Person p=new Person();
+		p.setName("abc");
+		System.out.println(p.getName(p));
+		p.setAge(23);
+		System.out.println(p.getAge(p));
+		p.setAddress("house no is mention here & address");
+		System.out.println(p.getAdd(p));
+        
+	}
+		
+}
