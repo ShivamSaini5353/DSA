@@ -1,1 +1,22 @@
-
+interface Drawable {
+    void draw();
+}
+class Rectangle implements Drawable {
+    public void draw() {
+        System.out.println("Draw the rectangle.");
+    }
+}
+class Circle implements Drawable {
+	public void draw() {
+		System.out.println("Draw the circle.");
+	}
+}
+public class AssignmentQues {
+	public static void main(String[] args) {
+		Circle cir = new Circle();
+        cir.draw(); 
+        Rectangle rect= new Rectangle();
+        rect.draw();  
+        
+	}
+}
