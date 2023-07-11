@@ -1,1 +1,51 @@
+//Question-1
+In Java, an exception is an unexpected event or error that occurs during the execution of a progra. It is used to handle and manage errors, allowing for proper error handling and program termination.
+
+//Question-2
+Exception handling in Java is a mechanism that allows programmers to catch and handle exceptions that occur during the execution of a program.
+
+//Question-3
+The main difference is that checked exceptions and errors must be explicitly declared or caught in the code, whereas unchecked exceptions do not require explicit handling. Checked exceptions are typically used for recoverable conditions, while errors represent unrecoverable or critical conditions that may not be handled.
+
+//Question-4
+The main difference is that "throw" is used to explicitly throw an exception within a method, indicating an exceptional condition, while "throws" is used in the method signature to declare the types of exceptions.
+
+//Question-5
+Multithreading in Java refers to the ability of a program to execute multiple threads concurrently. A thread is a lightweight unit.
+**Advantages of multithreading in Java**
+Improved performance and efficiency by utilizing multiple CPU.
+Simplified program design and structure, as complex tasks can be divided into smaller, manageable threads that can run simultaneously.
+
+//Question-6
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+public class AssignmentQues {		
+	public static void main(String[] args) {
+		try {
+            int age = 25;
+            if (age < 18)  throw new CustomException("You can not drive!!");
+            else  System.out.println("You can drive!!");
+        } catch (CustomException e) {
+            System.out.println("Exception " + e.getMessage());
+        }
+        
+	}
+}
+
+//Question-7
+Exceptions in Java can be handled using try-catch blocks.
+
+//Question-8
+A thread in Java is a lightweight unit of execution that represents an independent flow of control within a program.
+
+//Question-9
+By implementing the Runnable interface and thread's logic in the run() method. 
+
+//Question-10
+Garbage collection in Java is an automatic memory management process that automatically removes variable, objects that are no longer in use, this preventing memory leakage problem.
+
+
 
