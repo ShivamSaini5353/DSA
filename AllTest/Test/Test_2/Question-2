@@ -1,1 +1,62 @@
+abstract class Shape{
+	abstract double calculateArea();
+}
 
+class Rectangle extends Shape{
+	double length;
+	double breath;
+	
+	public Rectangle(int len, int bre) {
+		this.length=len;
+		this.breath=bre;
+	}
+	
+	public double calculateArea() {
+		return (length*breath);
+	}
+}
+class Circle extends Shape{
+	double radius;
+	
+	public Circle(int radius) {
+		this.radius=radius;
+	}
+	
+	public double calculateArea() {
+		return (3.14*radius*radius);
+	}
+}
+class Triangle extends Shape{
+	double length;
+	double breath; 
+	
+	public Triangle(int len, int breath) {
+		this.length=len;
+		this.breath=breath;
+	}
+	
+	public double calculateArea() {
+		return (0.5*length*breath);
+	}
+}
+
+class ShapeCalculator{
+	public double printArea(Shape shape) {
+		double area=shape.calculateArea();
+		return area;
+	}
+}
+
+
+public class AssignmentQues {
+		
+	public static void main(String[] args) {
+		ShapeCalculator a=new ShapeCalculator();
+		Rectangle areaRact = new Rectangle(4, 6);
+        System.out.println(a.printArea(areaRact)); 
+        Circle areaCir=new Circle(3);
+        System.out.println(a.printArea(areaCir));
+        Triangle areatra=new Triangle(2, 3);
+        System.out.println(a.printArea(areatra));
+        
+	}
