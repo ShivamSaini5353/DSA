@@ -1,1 +1,46 @@
+Question-1
+A collection is a group of objects or it is a single entity that represents multiple objects.
+
+Question-2
+A Collection is an interface in Java. It is present in the package named java.util. It can be understood as a single unit with a group or a set of objects.
+Collections is a class in Java. Specifically, it is a utility class in the package named java.util. 
+
+Question-3
+Reduces programming effort.
+Increases program speed and quality.
+
+Question-4
+Java Collection framework: List, Set, Queue, MAp etc.
+
+Question-5
+A List interface is an ordered collection of values in which duplicated values are allowed. 
+A Set interface in Java is an unordered collection of values in which duplicated values are not allowed.
+
+Question-6
+Iterator can traverse only in forward direction whereas ListIterator traverses both in forward and backward directions.
+
+Question-7
+Comparable provides a single sorting sequence and the Comparator provides multiple sorting sequences.
+
+Question-8
+A collision happens when two different keys happen to have the same hash code, or two keys.
+
+Question-9
+A HashMap uses a data structure known as the hash table in order to store the map's key-value pair. The hash code of the keys is used in the process of inserting key-value pairs into the database. Hence, each key in the map needs to be distinct from the others so that it can be used to retrieve the values.
+TreeMap is another type of Map class, just like HashMap. The TreeMap class is an extension of the AbstractMap class and implements the NavigabelMap and SortedMap interfaces.
+
+Question-10
+LinkedHashMap is a Hash table and linked list implementation of the Map interface, with iteration order. 
+
+
+
+
+
+
+
+
+
+
+
+
 
