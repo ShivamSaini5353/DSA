@@ -1,1 +1,42 @@
+Question-1
+JDBC (Java Database Connectivity) is used in Java to provide a standard API for accessing and manipulating relational databases, allowing Java applications to interact with various database management systems.
+
+Question-2
+The steps involved in using JDBC in Java are as follows:
+Importing JDBC Packages
+Loading and Registering the Driver
+Establishing a Connection
+Creating a Statement
+Executing SQL Queries
+Retrieving and Manipulating Data
+Closing the Connection
+
+Question-3
+Statement
+PreparedStatement
+CallableStatement
+
+Question-4
+A Servlet in Java is a server-side technology that provides a dynamic and platform-independent way to generate web content by extending the capabilities of a web server.
+
+Question-5
+The life cycle of a servlet consists of three main phases: initialization, request handling, and destruction, where the servlet is loaded, handles client requests, and is eventually unloaded from memory.
+
+Question-6
+The RequestDispatcher.forward() method is used to forward the request and response objects from one servlet to another servlet or JSP within the same server.
+On the other hand, HttpServletResponse.sendRedirect() method is used to send a response to the client with a new URL. It instructs the client's browser to make a new request to the specified URL. 
+
+Question-7
+The doGet() method is used to handle HTTP GET requests, while the doPost() method is used to handle HTTP POST requests in a servlet.
+
+Question-8
+The JSP Model-View-Controller (MVC) architecture is a design pattern where the Model represents the data and business logic, the View handles the presentation and user interface, and the Controller manages the flow and interactions between the Model and View components in a web application.
+
+Question-9
+Some advantages of Servlets include platform independence, performance efficiency, easy integration with existing Java code, and the ability to handle multiple client requests concurrently.
+
+Question-10
+Some limitations of JSP include the mixing of presentation logic with business logic, increased complexity for large-scale applications, potential for reduced performance due to the translation process, and limited support for certain advanced features compared to other web frameworks.
+
+
 
