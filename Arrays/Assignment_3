@@ -1,1 +1,81 @@
+Question 2
+class Parent {
+    public void display() { System.out.println("This is the super class.")};
+}
+class Child extends Parent {
+    public void display() { System.out.println("This is the sub class.")};
+}
+public class Main {
+    public static void main(String[] args) {
+        Parent parentObj = new Parent();
+        Child childObj = new Child();
+        parentObj.display(); 
+        childObj.display(); 
+    }
+}
+
+
+Question 3
+class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    public void makeSound() {
+        System.out.println("The dog barks");
+    }
+}
+class Cat extends Animal {
+public void makeSound() {
+        System.out.println("The cat meows");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+        animal1.makeSound(); 
+        animal2.makeSound(); 
+    }
+}
+
+
+Question 4
+public class AssignmentQues {
+	 public static void display(String name) {
+	        System.out.println("name: " + name);
+	    }
+	    public static void display(String name, int no) {
+	        System.out.println("name: " + name + " " + no);
+	    }
+	public static void main(String[] args) {
+		 display("Hello"); 
+	     display("shivam", 1);
+	}
+}
+
+Question 6
+Encapsulation is a fundamental principle in Java that combines data and methods into a single unit called a class. It involves the wrapping of data (variables) and methods (functions) within a class, and controlling access to them through the use of access modifiers.
+Data Hiding: Encapsulation allows you to hide the internal state (data) of an object and provide controlled access to it. By declaring data members as private, you prevent direct access from outside the class.
+Data Protection: By providing methods (getters and setters) to access and modify the internal state of an object.
+Code Reusability: Encapsulation facilitates code reusability. By encapsulating related data and methods into classes, you can create reusable components.
+Security and Access Control: Encapsulation enhances security by allowing controlled access to data. You can restrict access to sensitive data and expose only necessary methods. This prevents unauthorized access and ensures that data manipulation is performed through defined methods, enforcing security protocols.
+
+Quetsion 7
+
+No, Java is not a 100% Object-oriented Programming language because it allows the existence of primitive data types (such as int, double, char) which are not objects.
+
+Question 8
+The advantages of abstraction in Java include simplified code complexity, increased code reusability, and enhanced maintainability.
+
+Question 9
+Abstraction in Java refers to the concept of simplifying complex systems by providing a simplified view or interface. For example, a Car class abstracts the details of its internal mechanisms, allowing users to interact with it using high-level methods like start(), stop(), and accelerate(), without needing to understand the intricacies of the engine, transmission, and other components.
+
+Question 10
+A final class in Java is a class that cannot be subclassed, meaning it cannot be extended by other classes.
+
+
+
+
 
